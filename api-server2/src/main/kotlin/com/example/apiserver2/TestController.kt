@@ -8,6 +8,6 @@ class TestController {
 
     @GetMapping("/test")
     fun getTest(): String {
-        return "hello world"
+        return "This is api-server2"
     }
 }

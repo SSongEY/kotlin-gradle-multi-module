@@ -47,17 +47,29 @@ subprojects {
 	}
 }
 
+
 project(":core") {
+	tasks.getByName<org.springframework.boot.gradle.tasks.bundling.BootJar>("bootJar") {
+		enabled = false
+	}
 }
 
 project(":api-server1") {
 	dependencies {
 		implementation(project(":core"))
 	}
+
+	tasks.getByName<Jar>("jar") {
+		enabled = false
+	}
 }
 
 project(":api-server2") {
 	dependencies {
 		implementation(project(":core"))
+	}
+
+	tasks.getByName<Jar>("jar") {
+		enabled = false
 	}
 }
